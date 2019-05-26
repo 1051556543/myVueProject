@@ -176,7 +176,7 @@ export default {
       },
       {
         id: "1",
-        ruleName: '购方',
+        ruleName: '购方sfd',
         ruleCode: "1001",
         ruleType: "交易准入规则",
         ruleUser: "仅适用于购方",
