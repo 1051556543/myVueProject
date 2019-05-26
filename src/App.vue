@@ -13,17 +13,16 @@ export default {
 </script>
 
 <style>
-*{
+body {
   margin: 0;
-  padding: 0;
 }
 #app {
-  width: 100%;
-  height:1000px;
+  width: 1260px;
+  height:auto;
   font-family: '微软雅黑';
   text-align: center;
   color: #2c3e50;
   background: #E6E6E6;
-  padding-top: 100px;
+  padding: 15px;
 }
 </style>

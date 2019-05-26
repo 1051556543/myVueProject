@@ -9,14 +9,16 @@
           </div>
         </el-header>
         <el-main style="width: 100%; height:255px; padding-bottom:10px;">
-          <el-table :data="declareParamList" height="240px" bodrder stripe   @selection-change="handleSelectionChange" style="font-size:12px;">
+          <el-table :data="declareParamList" height="240px" bodrder stripe   @selection-change="handleSelectionChange" 
+            style="font-size:12px;"
+            :header-cell-style="{background:'#E5E5E5',color:'#333'}">
             <el-table-column type="selection" width="50" fixed></el-table-column>
-            <el-table-column prop="ruleName" label="规则名称" width="100" align="center"></el-table-column>
+            <el-table-column prop="ruleName" label="规则名称" width="80" align="center"></el-table-column>
             <el-table-column prop="paramName" label="参数名称" width="100"  align="center"></el-table-column>
-            <el-table-column prop="paramCode" label="参数编码"  width="150" align="center"></el-table-column>
+            <!-- <el-table-column prop="paramCode" label="参数编码"  width="150" align="center"></el-table-column> -->
             <el-table-column prop="paramDataType" label="参数数据类型"  width="150" align="center"></el-table-column>
             <el-table-column prop="assistInfo" label="辅助信息"  width="100" align="center"></el-table-column>
-            <el-table-column prop="isDeclare" label="是否公告"  width="100" align="center"></el-table-column>
+            <el-table-column prop="isDeclare" label="是否公告"  width="80" align="center"></el-table-column>
             <el-table-column prop="ruleSence" label="所属市场"  width="150" align="center"></el-table-column>
             <el-table-column  prop="" label="操作" width="200" align="center" fixed="right">
               <template slot-scope="scope">
@@ -49,30 +51,30 @@
         <el-form :model="declareParam" :label-position="labelPosition" label-width="110px" size="mini" :rules="rules" ref="declareParam">
           
           <el-form-item label="规则名称" prop="ruleName">
-            <el-input v-model="declareParam.ruleName" auto-complete="off"></el-input>
+            <el-input v-model="declareParam.ruleName" auto-complete="off" disabled suffix-icon="el-icon-star-on"></el-input>
           </el-form-item>
-          <el-form-item label="参数名称" prop="paramName">
-            <el-input v-model="declareParam.paramName" auto-complete="off"></el-input>
+          <el-form-item label="参数名称" prop="paramName" >
+            <el-input v-model="declareParam.paramName" auto-complete="off"  suffix-icon="el-icon-edit" placeholder="请输入参数名称"></el-input>
           </el-form-item>
-          <el-form-item label="参数编码" prop="paramCode">
+          <!-- <el-form-item label="参数编码" prop="paramCode">
             <el-input v-model="declareParam.paramCode" auto-complete="off"></el-input>
-          </el-form-item>
+          </el-form-item> -->
           <el-form-item label="参数数据类型" prop="paramDataType">
-            <el-input v-model="declareParam.paramDataType" auto-complete="off"></el-input>
+            <el-input v-model="declareParam.paramDataType" auto-complete="off" suffix-icon="el-icon-edit" placeholder="请输入参数数据类型"></el-input>
           </el-form-item>
           <el-form-item label="辅助信息" prop="assistInfo">
-            <el-input v-model="declareParam.assistInfo" auto-complete="off"></el-input>
+            <el-input v-model="declareParam.assistInfo" auto-complete="off" suffix-icon="el-icon-edit" placeholder="请输入辅助信息"></el-input>
           </el-form-item>
           <el-form-item label="是否公告" prop="isDeclare">
-            <el-input v-model="declareParam.isDeclare" auto-complete="off"></el-input>
+            <el-input v-model="declareParam.isDeclare" auto-complete="off"  suffix-icon="el-icon-edit" placeholder="请输入是或否"></el-input>
           </el-form-item>
           <el-form-item label="所属市场" prop="ruleSence">
-            <el-input v-model="declareParam.ruleSence" auto-complete="off"></el-input>
+            <el-input v-model="declareParam.ruleSence" auto-complete="off" disabled suffix-icon="el-icon-star-on"></el-input>
           </el-form-item>
         </el-form>
         <span slot="footer" class="dialog-footer" >
           <el-button type="danger" size="small" @click="declareParamDialogVisible = false">取 消</el-button>
-          <el-button type="primary" size="small"  @click="save('declareParam')">确 定</el-button>
+          <el-button type="primary" size="small"  @click="save('declareParam')">保 存</el-button>
         </span>
       </el-dialog>
 
@@ -129,10 +131,10 @@ export default {
            { required: true, message: '请输入参数名称', trigger: 'blur' },
           //  { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
          ],
-         paramCode: [
-           { required: true, message: '请输入参数编码', trigger: 'blur' },
-          //  { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-         ],
+        //  paramCode: [
+        //    { required: true, message: '请输入参数编码', trigger: 'blur' },
+        //   //  { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+        //  ],
          paramDataType: [
            { required: true, message: '请输入参数数据类型', trigger: 'blur' },
           //  { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
@@ -173,6 +175,8 @@ export default {
    },
    createdeclareParam () {
      this.declareParam = {};
+     this.declareParam.ruleName = "申报规则";
+     this.declareParam.ruleSence = "北京交易电力中心";
      this.declareParamDialogVisible = true;
    },
    save (declareParam) {
