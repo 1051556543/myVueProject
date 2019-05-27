@@ -9,7 +9,7 @@
           </div>
         </el-header>
         <el-main style="width: 100%; height:800px; padding-bottom:10px;">
-          <el-table :data="tradeTermList" min-height="500px" bodrder stripe   @selection-change="handleSelectionChange" 
+          <el-table :data="tradeTermList" min-height="500px" bodrder stripe   @selection-change="handleSelectionChange"
             style="font-size:12px;"
             :header-cell-style="{background:'#E5E5E5',color:'#333'}">
             <el-table-column type="selection" width="50" fixed></el-table-column>
@@ -46,10 +46,10 @@
         title="交易条款信息"
         :visible.sync="tradeTermDialogVisible"
         width="30%"
-        :before-close="handleClose" 
-        center>   
+        :before-close="handleClose"
+        center>
         <el-form :model="tradeTerm" :label-position="labelPosition" label-width="110px" size="mini" :rules="rules" ref="tradeTerm">
-          
+
           <el-form-item label="交易子品种" prop="subVarieties">
             <el-input v-model="tradeTerm.subVarieties" auto-complete="off" disabled suffix-icon="el-icon-star-on"></el-input>
           </el-form-item>
@@ -82,20 +82,20 @@
 </template>
 
 <script>
-let id = 1;
+let id = 1
 export default {
- data () {
-   return {
+  data () {
+    return {
       currentPage: 1,
-      labelPosition: "right",
+      labelPosition: 'right',
       tradeTerm: {
         subVarieties: '',
-        termName: "",
-        dataType: "",
+        termName: '',
+        dataType: '',
         // paramDataType: "",
-        assistInfo: "",
-        isDeclare: "",
-        ruleSence: ""
+        assistInfo: '',
+        isDeclare: '',
+        ruleSence: ''
       },
       tradeTermDialogVisible: false,
       tradeTermList: [],
@@ -127,10 +127,10 @@ export default {
         //    { required: true, message: '请输入子品种', trigger: 'blur' },
         //   //  { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
         //  ],
-         termName: [
-           { required: true, message: '请输入交易条款名称', trigger: 'blur' },
+        termName: [
+          { required: true, message: '请输入交易条款名称', trigger: 'blur' }
           //  { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-         ],
+        ],
         //  dataType: [
         //    { required: true, message: '请输入参数编码', trigger: 'blur' },
         //   //  { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
@@ -139,141 +139,136 @@ export default {
         //    { required: true, message: '请输入参数数据类型', trigger: 'blur' },
         //   //  { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
         //  ],
-         assistInfo: [
-           { required: true, message: '请输入辅助信息', trigger: 'blur' },
+        assistInfo: [
+          { required: true, message: '请输入辅助信息', trigger: 'blur' }
           //  { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-         ],
-         isDeclare: [
-           { required: true, message: '请输入是或否', trigger: 'blur' },
+        ],
+        isDeclare: [
+          { required: true, message: '请输入是或否', trigger: 'blur' }
           //  { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-         ],
-         ruleSence: [
-           { required: true, message: '请输入规则场景', trigger: 'blur' },
+        ],
+        ruleSence: [
+          { required: true, message: '请输入规则场景', trigger: 'blur' }
           //  { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-         ]
+        ]
       }
-   }
- },
- mounted () {
-   this.loadData(this.queryParam);
- },
- methods: {
-   loadData (queryParam) {
-     let dataList = [{
-        id: "1",
-        subVarieties: "电力直接交易",
-        termName: "是否自动刷新",
-        dataType: "布尔型",
+    }
+  },
+  mounted () {
+    this.loadData(this.queryParam)
+  },
+  methods: {
+    loadData (queryParam) {
+      let dataList = [{
+        id: '1',
+        subVarieties: '电力直接交易',
+        termName: '是否自动刷新',
+        dataType: '布尔型',
         // paramDataType: "布尔型",
-        assistInfo: "无",
-        isDeclare: "是",
-        ruleSence: "国网山西电力"
+        assistInfo: '无',
+        isDeclare: '是',
+        ruleSence: '国网山西电力'
       },
       {
-        id: "1",
-        subVarieties: "电力直接交易",
-        termName: "是否自动刷新",
-        dataType: "布尔型",
+        id: '1',
+        subVarieties: '电力直接交易',
+        termName: '是否自动刷新',
+        dataType: '布尔型',
         // paramDataType: "布尔型",
-        assistInfo: "无",
-        isDeclare: "是",
-        ruleSence: "国网山西电力"
+        assistInfo: '无',
+        isDeclare: '是',
+        ruleSence: '国网山西电力'
       },
       {
-        id: "1",
-        subVarieties: "电力直接交易",
-        termName: "是否自动刷新",
-        dataType: "布尔型",
+        id: '1',
+        subVarieties: '电力直接交易',
+        termName: '是否自动刷新',
+        dataType: '布尔型',
         // paramDataType: "布尔型",
-        assistInfo: "无",
-        isDeclare: "是",
-        ruleSence: "国网山西电力"
+        assistInfo: '无',
+        isDeclare: '是',
+        ruleSence: '国网山西电力'
       },
       {
-        id: "1",
-        subVarieties: "电力直接交易",
-        termName: "是否自动刷新",
-        dataType: "布尔型",
+        id: '1',
+        subVarieties: '电力直接交易',
+        termName: '是否自动刷新',
+        dataType: '布尔型',
         // paramDataType: "布尔型",
-        assistInfo: "无",
-        isDeclare: "是",
-        ruleSence: "国网山西电力"
+        assistInfo: '无',
+        isDeclare: '是',
+        ruleSence: '国网山西电力'
       },
       {
-        id: "1",
-        subVarieties: "电力直接交易",
-        termName: "是否自动刷新",
-        dataType: "布尔型",
+        id: '1',
+        subVarieties: '电力直接交易',
+        termName: '是否自动刷新',
+        dataType: '布尔型',
         // paramDataType: "布尔型",
-        assistInfo: "无",
-        isDeclare: "是",
-        ruleSence: "国网山西电力"
+        assistInfo: '无',
+        isDeclare: '是',
+        ruleSence: '国网山西电力'
       }]
-      this.tradeTermList = dataList;
-      this.queryParam.pageInfo.total = this.tradeTermList.length;
-   
-   },
-   createtradeTerm () {
-     this.tradeTerm = {};
-     this.tradeTerm.subVarieties = "电力直接交易";
-     this.tradeTerm.dataType = "布尔型";
-     this.tradeTerm.ruleSence = "国网山西电力";
-     this.tradeTermDialogVisible = true;
-   },
-   save (tradeTerm) {
-     this.$refs[tradeTerm].validate((valid) => {
+      this.tradeTermList = dataList
+      this.queryParam.pageInfo.total = this.tradeTermList.length
+    },
+    createtradeTerm () {
+      this.tradeTerm = {}
+      this.tradeTerm.subVarieties = '电力直接交易'
+      this.tradeTerm.dataType = '布尔型'
+      this.tradeTerm.ruleSence = '国网山西电力'
+      this.tradeTermDialogVisible = true
+    },
+    save (tradeTerm) {
+      this.$refs[tradeTerm].validate((valid) => {
         if (valid) {
-          if ( this.tradeTerm.id == null ) {
-            this.tradeTerm.id = id++;
-            this.tradeTermList.push(this.tradeTerm);
-            this.queryParam.pageInfo.total = this.tradeTermList.length;
+          if (this.tradeTerm.id == null) {
+            this.tradeTerm.id = id++
+            this.tradeTermList.push(this.tradeTerm)
+            this.queryParam.pageInfo.total = this.tradeTermList.length
           }
-          this.tradeTermDialogVisible = false;
+          this.tradeTermDialogVisible = false
         } else {
-          console.log('error submit!!');
-          return false;
+          console.log('error submit!!')
+          return false
         }
-      });    
-   },
-   handleEdit (index, row) {
-     this.tradeTerm = this.tradeTermList[index];
-     this.tradeTermDialogVisible = true;
-     console.log(index,row);
-   },
-   handleDelete (index, row) {
-    
-    this.$confirm('你确定要删除该条信息吗?', '警告', {
-      confirmButtonText: '确定',
-      cancelButtonText: '取消',
-      type: 'warning'
-    }).then(res => {
-      this.tradeTermList.splice(index,1);
-      this.queryParam.pageInfo.total = this.tradeTermList.length;
-    },err => {
-     
-    })
-   },
-   handleSelectionChange (multipleSelection) {
-     
-    
-   },
-   deleteAll () {
-    alert("需连接后台才可实现");
-   },
-   handleSizeChange(val) {
-      this.queryParam.pageInfo.pageSize = val;
-   },
-    handleCurrentChange(val) {
-      this.queryParam.pageInfo.pageNum = val;
-   },
-   handleClose(done) {
+      })
+    },
+    handleEdit (index, row) {
+      this.tradeTerm = this.tradeTermList[index]
+      this.tradeTermDialogVisible = true
+      console.log(index, row)
+    },
+    handleDelete (index, row) {
+      this.$confirm('你确定要删除该条信息吗?', '警告', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(res => {
+        this.tradeTermList.splice(index, 1)
+        this.queryParam.pageInfo.total = this.tradeTermList.length
+      })
+    },
+    handleSelectionChange (multipleSelection) {
+
+    },
+    deleteAll () {
+      alert('需连接后台才可实现')
+    },
+    handleSizeChange (val) {
+      this.queryParam.pageInfo.pageSize = val
+    },
+    handleCurrentChange (val) {
+      this.queryParam.pageInfo.pageNum = val
+    },
+    handleClose (done) {
       this.$confirm('确认关闭？')
         .then(_ => {
-          done();
+          done()
         })
-        .catch(_ => {});
-   }
- }
+        .catch(_ => {})
+    }
+  }
 }
 </script>
 
