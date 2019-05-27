@@ -24,5 +24,6 @@ body {
   color: #2c3e50;
   background: #E6E6E6;
   padding: 15px;
+  box-sizing:border-box;
 }
 </style>

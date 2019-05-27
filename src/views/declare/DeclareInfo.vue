@@ -1,7 +1,7 @@
 <template>
-  <div style="width:1000px; height:400px; background: #fff; margin: 0 auto;">
+  <div style="width:1000px; height:400px; background: #fff; margin: 0 auto 15px;">
       <el-container style="width:100%; height:100%; padding:15px; box-sizing:border-box; text-align:left;">
-        <el-header style="width:100%;height:50px; boder:10px solid black;">
+        <el-header style="width:100%;height:50px; boder:10px solid black;background:#fff;">
           <div style="width:100%; height:100%; line-height:50px; border-bottom:1px solid black;">
             <span style="margin-right:30px;">申报规则信息</span>
             <el-button type="primary" size="mini" icon="el-icon-circle-plus-outline" @click="createDeclareInfo" >新建</el-button>
